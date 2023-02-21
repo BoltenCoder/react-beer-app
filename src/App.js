@@ -1,5 +1,14 @@
 import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
+
+componentDidMount() {
+  axios.get('https://api.punkapi.com/v2/beers')
+    .then( res => {
+      const arrayOfBeer = res.data
+      this.setState({ arrayOfBeer })
+  })
+}
 
 function App() {
   return (
